@@ -43,7 +43,7 @@ function BMIResultContent() {
               Calculate BMI Result : {bmiResult}
              </p>
              <br />
-              <h3 className="text-center text-gl from-red-700 to-yellow-700 bg-linear-to-r bg-clip-text text-transparent font-bold">
+              <h3 className="text-center text-lg from-red-700 to-yellow-700 bg-linear-to-r bg-clip-text text-transparent font-bold">
                 Thank You For Using BMI Calculator App
               </h3>
               <h3 className="text-center text-lg font-bold text-blue-600">
