@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import {useState} from "react"; 
 import Image from "next/image";
@@ -10,7 +11,7 @@ export default function Page() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [bmi, setBmi] = useState("");
-  const [bmiResult, setBmiResult] = useState(""); 
+  const [, setBmiResult] = useState(""); 
 
   // Create Function to Button Calculate BMI
   const handleCalClick = () => {
@@ -23,10 +24,11 @@ export default function Page() {
       }
       const heightInMeters = heightNum / 100;
       const CalculaterBmi = weightNum / (heightInMeters * heightInMeters);
-      setBmi(CalculaterBmi.toFixed(2));
+      const bmiValue = CalculaterBmi.toFixed(2);
+      setBmi(bmiValue);
 
       //แปลผลลัพธ์ Result BMI
-      let Result = " ";
+      let Result = "";
       if(CalculaterBmi < 18.5){
         Result = "Underweight";
       }else if(CalculaterBmi < 25){
@@ -37,8 +39,16 @@ export default function Page() {
         Result = "Obesity";
       }
       setBmiResult(Result);
-      //Display Message "/resultbmi"
-      router.push(`/resultbmi?weight=${weight}&height=${height}&bmi=${bmi}&bmiResult=${bmiResult}`);
+      
+      // Navigate with calculated values
+      const query = new URLSearchParams({
+        weight: weight,
+        height: height,
+        bmi: bmiValue,
+        bmiResult: Result
+      }).toString();
+      
+      router.push(`/resultbmi?${query}`);
   };
   
   // Create Function to Reset BMI
@@ -49,8 +59,8 @@ export default function Page() {
     setBmiResult(""); 
   }; 
   return (
-    <div className="w-1/2 border-gray-300 mx-auto shadow-2xl shadow-gray-300
-                    p-10 rounded-lg">
+    <div className="w-full max-w-md border border-gray-100 mx-auto shadow-2xl shadow-gray-200
+                    p-6 md:p-10 rounded-2xl bg-white">
         {/* Section to Show Image */}
         <Image src={bmiImg} alt="BMI"
         width={80} height={80}

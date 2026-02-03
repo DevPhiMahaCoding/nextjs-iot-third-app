@@ -2,13 +2,18 @@
 import Image from "next/image";
 import bmiImg from "@/assets/images/bmi.png";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Page() {
-  const {weight, height, bmi, bmiResult} = Object.fromEntries(useSearchParams());
+function BMIResultContent() {
+  const searchParams = useSearchParams();
+  const weight = searchParams.get("weight");
+  const height = searchParams.get("height");
+  const bmi = searchParams.get("bmi");
+  const bmiResult = searchParams.get("bmiResult");
 
   return (
-    <div className="w-1/2 border-gray-300 mx-auto shadow-2xl shadow-gray-300
-                    p-10 rounded-lg">
+    <div className="w-full max-w-md border border-gray-100 mx-auto shadow-2xl shadow-gray-200
+                    p-6 md:p-10 rounded-2xl bg-white">
         {/* Section to Show Image */}
         <Image src={bmiImg} alt="BMI"
         width={100} height={100}
@@ -46,5 +51,13 @@ export default function Page() {
               </h3> 
         </div> 
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="text-center mt-10">Loading results...</div>}>
+      <BMIResultContent />
+    </Suspense>
   );
 }
