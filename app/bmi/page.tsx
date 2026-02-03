@@ -3,7 +3,7 @@
 import {useState} from "react"; 
 import Image from "next/image";
 import bmiImg from "@/assets/images/bmi.png";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter(); 
@@ -50,7 +50,7 @@ export default function Page() {
       
       router.push(`/resultbmi?${query}`);
   };
-  
+
   // Create Function to Reset BMI
   const handleResetClick = () => {
     setWeight("");
