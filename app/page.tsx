@@ -1,6 +1,7 @@
 import Image from "next/image";
 import bmiImg from "@/assets/images/bmi.png";
-import Link from "next/link"; 
+import Link from "next/link";
+
 
 export default function Page() {
   return (
