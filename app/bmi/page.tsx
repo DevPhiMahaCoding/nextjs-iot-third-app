@@ -50,7 +50,6 @@ export default function Page() {
       
       router.push(`/resultbmi?${query}`);
   };
-
   // Create Function to Reset BMI
   const handleResetClick = () => {
     setWeight("");
