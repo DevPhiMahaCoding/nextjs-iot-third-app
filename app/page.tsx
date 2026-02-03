@@ -15,8 +15,8 @@ export default function Page() {
         Calculate Of BMI
       </h3>
       <Link href="/bmi" className="w-50 bg-yellow-400 block mx-auto
-                                text-center text-black font-bold py-2 mt-4 mb-4 rounded
-                                hover:bg-red-600 transition">
+                  text-center text-black font-bold py-2 mt-4 mb-4 rounded
+                  hover:bg-red-600 transition">
         Go to BMI Calculator
       </Link> 
     </> 
