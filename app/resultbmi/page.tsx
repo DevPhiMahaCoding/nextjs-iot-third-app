@@ -3,7 +3,6 @@ import Image from "next/image";
 import bmiImg from "@/assets/images/bmi.png";
 import { useSearchParams } from "next/navigation";
 
-
 export default function Page() {
   const {weight, height, bmi, bmiResult} = Object.fromEntries(useSearchParams());
 
