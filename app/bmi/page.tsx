@@ -37,7 +37,6 @@ export default function Page() {
         Result = "Obesity";
       }
       setBmiResult(Result);
-
       //Display Message "/resultbmi"
       router.push(`/resultbmi?weight=${weight}&height=${height}&bmi=${bmi}&bmiResult=${bmiResult}`);
   };
